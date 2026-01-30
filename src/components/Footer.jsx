@@ -1,138 +1,115 @@
-import React from "react";
-import { Facebook, Linkedin, MessageCircle  } from "lucide-react";
-import { Link } from "react-router-dom";
-import logo from "../assets/property_logo.png";
+import React from 'react';
+import { Facebook, Linkedin, Phone } from 'lucide-react';
+import logo from '../assets/property_logo.png';
+import { Link } from 'react-router-dom';
+
+const DIAGONAL_OFFSET = 386; // spacing used in the design
 
 const Footer = () => {
   return (
-    <footer className="bg-[#01004C] text-white px-4 sm:px-6 lg:px-8 pt-16 pb-8 overflow-hidden">
-      {/* Top Section */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
-        {/* Logo & Info */}
-        <div>
-          <img
-            src={logo}
-            alt="Nirmana 360"
-            className="h-16 mb-4 bg-white/10 p-2 rounded"
-          />
+    <footer className="relative bg-[#01004C] text-white overflow-hidden">
 
-          <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
-            High level experience in Constractions and development
-          </p>
+      {/* Diagonal right-side background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundColor: '#44B4FF17',
+          clipPath: `polygon(
+            calc(100% - ${DIAGONAL_OFFSET}px) 0%,
+            100% 0%,
+            100% 100%,
+            ${DIAGONAL_OFFSET}px 100%
+          )`,
+        }}
+      />
 
-          <div className="flex items-center gap-4 mt-6">
-            <a
-              href="#"
-              className="w-9 h-9 flex items-center justify-center rounded bg-white text-[#01004C] hover:bg-gray-200 transition"
-            >
-              <Facebook size={18} />
-            </a>
+      {/* Content */}
+      <div className="relative z-10 max-w-[1728px] mx-auto px-8 pt-16 pb-8">
 
-            <a
-              href="#"
-              className="w-9 h-9 flex items-center justify-center rounded bg-white text-[#01004C] hover:bg-gray-200 transition"
-            >
-              <MessageCircle  size={18} />
-            </a>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
 
-            <a
-              href="#"
-              className="w-9 h-9 flex items-center justify-center rounded bg-white text-[#01004C] hover:bg-gray-200 transition"
-            >
-              <Linkedin size={18} />
-            </a>
+          {/* Left section */}
+          <div className="lg:col-span-4">
+            <img src={logo} alt="Nirmana 360" className="h-24 mb-6" />
+
+            <p className="text-lg leading-relaxed max-w-xs">
+              High level experience in Constractions and development
+            </p>
+
+            <div className="flex gap-4 mt-6">
+              {[Facebook, Phone, Linkedin].map((Icon, index) => (
+                <div
+                  key={index}
+                  className="w-10 h-10 bg-white rounded flex items-center justify-center text-black"
+                >
+                  <Icon size={20} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Links section */}
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-10 pt-6">
+
+            {/* Links */}
+            <FooterList
+              title="Links"
+              items={['Home', 'Property', 'Constraction', 'Offer', 'Helps']}
+              isLink
+            />
+
+            {/* Property */}
+            <FooterList
+              title="Property"
+              items={['Rent', 'Buy', 'Sell']}
+            />
+
+            {/* Construction */}
+            <FooterList
+              title="Constraction"
+              items={['Cement', 'Brick', 'Steel', 'Iron', 'Sand']}
+            />
+
           </div>
         </div>
 
-        {/* Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-6">Links</h3>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-white rounded-full" />
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-            </li>
+        {/* Bottom bar */}
+        <div className="border-t border-white/30 pt-8 flex flex-col md:flex-row justify-between gap-4">
+          <p>
+            @ 2025 Company name. All right reserved & design and developed by WASS
+          </p>
 
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-white rounded-full" />
-              <Link to="/buy" className="hover:text-white transition">
-                Property
-              </Link>
-            </li>
-
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-white rounded-full" />
-              <Link to="/construction" className="hover:text-white transition">
-                Constraction
-              </Link>
-            </li>
-
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-white rounded-full" />
-              <a href="#" className="hover:text-white transition">
-                Offer
-              </a>
-            </li>
-
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-white rounded-full" />
-              <a href="#" className="hover:text-white transition">
-                Helps
-              </a>
-            </li>
-          </ul>
+          <div className="flex gap-8">
+            <span>Privacy Policy</span>
+            <span>Terms of Condition</span>
+          </div>
         </div>
 
-        {/* Property */}
-        <div>
-          <h3 className="text-lg font-semibold mb-6">Property</h3>
-          <ul className="space-y-3 text-gray-300">
-            {["Rent", "Buy", "Sell"].map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-white rounded-full" />
-                <a href="#" className="hover:text-white transition">
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Construction */}
-        <div>
-          <h3 className="text-lg font-semibold mb-6">Constraction</h3>
-          <ul className="space-y-3 text-gray-300">
-            {["Cement", "Brick", "Steel", "Iron", "Sand"].map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-white rounded-full" />
-                <a href="#" className="hover:text-white transition">
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Bottom Section */}
-      <div className="max-w-7xl mx-auto border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400 text-sm">
-        <p className="text-center md:text-left">
-          © 2025 Company name. All right reserved & design and developed by WASS
-        </p>
-
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:text-white transition">
-            Terms of Condition
-          </a>
-        </div>
       </div>
     </footer>
   );
 };
+
+/*  */
+const FooterList = ({ title, items, isLink }) => (
+  <div>
+    <h3 className="text-2xl mb-6">{title}</h3>
+
+    <ul className="space-y-4">
+      {items.map(item => (
+        <li key={item} className="flex items-center gap-3">
+          <span className="w-1.5 h-1.5 bg-white rounded-full" />
+          {isLink ? (
+            <Link to="/" className="text-lg hover:text-gray-300">
+              {item}
+            </Link>
+          ) : (
+            <span className="text-lg">{item}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default Footer;

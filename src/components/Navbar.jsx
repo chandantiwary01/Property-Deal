@@ -1,39 +1,59 @@
 import React, { useState } from "react";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import logo from "../assets/property_logo.png";
+import icon1 from "../assets/navbar_R8_icon.png";
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#01004C] sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+    <nav className="bg-[#01004C] w-full sticky top-0 z-50">
+      <div className="relative max-w-[1728px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
+        
         {/* Logo */}
-        <div className="flex items-center ml-15">
+        <div className="absolute top-[18px] left-[100px]">
           <img
             src={logo}
             alt="Logo"
-            className="h-12 object-contain"
+            className="w-[104px] h-[85px] object-contain cursor-pointer"
           />
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-white font-medium">
-          <span className="cursor-pointer">Home</span>
+        <div className="hidden md:flex items-center gap-[60px] ml-[450px] text-white font-['Poppins'] font-[600] text-[25px] transition hover:text-[#41B3FF]">
+
+           <Link to="/" className="cursor-pointer">
+  Home
+</Link>
           <span className="cursor-pointer">Property</span>
-          <span className="cursor-pointer">Constraction</span>
+          <Link to="/construction" className="cursor-pointer">
+  Construction
+</Link>
+
           <span className="cursor-pointer">Offer</span>
           <span className="cursor-pointer">Help</span>
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center gap-3">
-          <button className="hidden sm:block bg-white text-[#01004C] px-5 py-2 rounded-md font-semibold">
+        <div className="flex items-center gap-15 ">
+          <button
+            className="
+              hidden sm:flex
+              w-[250px] h-[62px]
+              items-center justify-center
+              bg-white text-[#01004C]
+              rounded-[6px]
+              font-[700] text-[25px]
+              font-['Poppins'] transition hover:text-[#41B3FF] cursor-pointer
+            "
+          >
             Sell Your Property
           </button>
 
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-            <User className="text-[#01004C] w-6 h-6" />
+          <div className="w-[65px] h-[65px] rounded-[54px] bg-white flex items-center justify-center">
+            <img src={icon1} alt="icon" className="w-10 h-10 object-contain cursor-pointer" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -46,9 +66,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Structure */}
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#01004C] px-4 pb-4 border-t border-white/10">
+        <div className="md:hidden bg-[#01004C] transition hover:text-black px-4 pb-4 border-t border-white/10">
           <div className="flex flex-col gap-4 text-white font-medium mt-4">
             <span>Home</span>
             <span>Property</span>
