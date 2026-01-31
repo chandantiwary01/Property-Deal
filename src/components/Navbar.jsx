@@ -27,7 +27,7 @@ const Navbar = () => {
            <Link to="/" className="cursor-pointer">
   Home
 </Link>
-          <span className="cursor-pointer">Property</span>
+          <Link to="/property" className="cursor-pointer">Property</Link>
           <Link to="/construction" className="cursor-pointer">
   Construction
 </Link>
