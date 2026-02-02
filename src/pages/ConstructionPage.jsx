@@ -8,7 +8,7 @@ import cons_img3 from "../assets/cons_img3.png";
 const CategoryCard = ({ title, image }) => {
   return (
     <div
-      className="bg-white shadow-md hover:shadow-xl transition-all"
+      className="bg-white shadow-md hover:shadow-xl transition-all mx-auto w-full flex flex-col"
       style={{
         width: "100%",
         maxWidth: "482px",
@@ -17,18 +17,18 @@ const CategoryCard = ({ title, image }) => {
       }}
     >
       {/* Text Content */}
-      <div className="px-6 sm:px-8 pt-8 text-center mb-6">
-        <h3 className="text-2xl sm:text-3xl font-bold text-[#01004C] mb-3">
+      <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 text-center mb-6">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#01004C] mb-3">
           {title}
         </h3>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-sm sm:text-base leading-relaxed line-clamp-2 sm:line-clamp-none">
           Lorem Ipsum available, but the majority have suffered alteration in
           some form
         </p>
       </div>
 
       {/* Image Section */}
-      <div className="relative mt-2">
+      <div className="relative mt-auto">
         <div
           className="relative overflow-hidden"
           style={{ borderRadius: "27px" }}
@@ -36,21 +36,61 @@ const CategoryCard = ({ title, image }) => {
           <img
             src={image}
             alt={title}
-            className="w-full h-[260px] sm:h-[300px] md:h-[350px] lg:h-[390px] object-cover"
+            className="
+              w-full 
+              object-cover
+              h-[200px]
+              xs:h-[220px]
+              sm:h-[260px]
+              md:h-[300px]
+              lg:h-[350px]
+              xl:h-[390px]
+            "
           />
 
           {/* White Square */}
           <div
-            className="absolute -bottom-1 -right-1 bg-white flex items-center justify-center cursor-pointer group shadow-md transition-all duration-300 hover:shadow-lg"
+            className="
+              absolute 
+              -bottom-1 
+              -right-1 
+              bg-white 
+              flex 
+              items-center 
+              justify-center 
+              cursor-pointer 
+              group 
+              shadow-md 
+              transition-all 
+              duration-300 
+              hover:shadow-lg
+              z-10
+            "
             style={{
-              width: "90px",
-              height: "90px",
-              borderRadius: "20px",
+              width: "clamp(60px, 18vw, 90px)",
+              height: "clamp(60px, 18vw, 90px)",
+              borderRadius: "20px 0px 20px 0px", // Adjusted for better bottom-right fit
             }}
           >
             {/* Arrow Circle */}
-            <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] lg:w-[80px] lg:h-[80px] rounded-full bg-[#01004C] flex items-center justify-center transition-all group-hover:scale-105">
-              <ArrowUpRight size={28} className="text-white" />
+            <div className="
+              rounded-full 
+              bg-[#01004C] 
+              flex 
+              items-center 
+              justify-center 
+              transition-all 
+              group-hover:scale-110
+              w-[40px]
+              h-[40px]
+              sm:w-[60px]
+              sm:h-[60px]
+              lg:w-[70px]
+              lg:h-[70px]
+              xl:w-[80px]
+              xl:h-[80px]
+            ">
+              <ArrowUpRight className="text-white w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
             </div>
           </div>
         </div>
@@ -73,52 +113,55 @@ const ConstructionPage = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen py-16 sm:py-20 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-white min-h-screen py-10 sm:py-16 md:py-20 px-4 sm:px-6">
+      <div className="max-w-[1440px] mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-16 sm:mb-20">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
-            It is a long established fact that a reader <br className="hidden sm:block" />
+        <div className="text-center mb-10 sm:mb-16 md:mb-20 px-2">
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mb-8">
+            It is a long established fact that a reader
+            <br className="hidden md:block" />
             will be distracted by the
           </h1>
 
-          {/* Search Bar */}
-          <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-stretch sm:items-center border rounded-lg overflow-hidden shadow-sm">
+          {/* Search Bar - Optimized for Mobile Rounding */}
+          <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-stretch border-2 border-gray-100 rounded-xl sm:rounded-lg overflow-hidden shadow-sm">
             <input
               type="text"
               placeholder="Search for more results..."
-              className="flex-1 px-6 py-4 outline-none text-gray-600"
+              className="flex-1 px-4 sm:px-6 py-4 sm:py-5 outline-none text-gray-600 text-sm sm:text-base"
             />
-            <button className="bg-[#01004C] text-white px-10 py-4 w-full sm:w-auto">
+            <button className="bg-[#01004C] text-white px-8 sm:px-12 py-4 sm:py-5 w-full sm:w-auto font-bold transition-colors hover:bg-[#0a0963]">
               Search
             </button>
           </div>
         </div>
 
-        {/* Cards Layout */}
+        {/* Cards Layout - Better grid gap management */}
         <div
-  className="
-    grid 
-    gap-12 
-    justify-center
-    grid-cols-1
-    md:grid-cols-2
-    xl:grid-cols-3
-  "
->
-  {categories.map((item, index) => (
-    <CategoryCard key={index} {...item} />
-  ))}
-</div>
-
+          className="
+            grid 
+            gap-6
+            sm:gap-8
+            lg:gap-10 
+            xl:gap-12
+            justify-center
+            grid-cols-1
+            md:grid-cols-2
+            xl:grid-cols-3
+          "
+        >
+          {categories.map((item, index) => (
+            <CategoryCard key={index} {...item} />
+          ))}
+        </div>
 
         {/* More Categories Button */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-12 sm:mt-20">
           <button
-            className="flex items-center justify-between bg-[#01004C] text-white hover:bg-[#440001] transition-all duration-300"
+            className="flex items-center justify-between bg-[#01004C] text-white hover:bg-[#440001] transition-all duration-300 group shadow-lg active:scale-95"
             style={{
-              width: "clamp(240px, 70%, 280px)",
+              width: "clamp(240px, 90%, 320px)",
               height: "64px",
               borderRadius: "8px",
               padding: "0 20px",
@@ -128,7 +171,7 @@ const ConstructionPage = () => {
             }}
           >
             More Categories
-            <span className="w-10 h-10 bg-white text-[#01004C] rounded-full flex items-center justify-center">
+            <span className="w-10 h-10 bg-white text-[#01004C] rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
               →
             </span>
           </button>
