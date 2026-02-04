@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[#01004C] w-full sticky top-0 z-50">
       {/* Container: Max width with centered content */}
-      <div className="max-w-[1728px] mx-auto px-4 sm:px-6 lg:px-10 py-4 lg:py-6 flex items-center justify-between">
+      <div className="max-w-[1728px] mx-auto px-4 sm:px-6 lg:px-10 py-2 lg:py-4 flex items-center justify-between">
         
         {/* Logo Section - Removed absolute positioning to allow natural flow */}
         <div className="flex-shrink-0">
