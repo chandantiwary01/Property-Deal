@@ -15,7 +15,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import property1 from "../assets/property-1.jpg";
 import property2 from "../assets/property-2.jpg";
@@ -86,6 +87,7 @@ const OutlineBtn = ({ text }) => (
 
 /* ================= PROPERTY CARD ================= */
 const PropertyCardList = ({ image, title, address, price }) => {
+  const navigate = useNavigate();
   return (
     <div
       className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 flex flex-col md:flex-row gap-6 mx-auto lg:mx-0"
@@ -149,7 +151,10 @@ const PropertyCardList = ({ image, title, address, price }) => {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-3">
-          <button className="flex-1 border border-[#01004C] text-[#01004C] hover:bg-[#01004C] hover:text-white py-3 rounded-lg font-semibold transition-all">
+          <button 
+            onClick={() => navigate('/property-detail')}
+            className="flex-1 border border-[#01004C] text-[#01004C] hover:bg-[#01004C] hover:text-white py-3 rounded-lg font-semibold transition-all"
+          >
             View Details
           </button>
           <button className="flex-1 bg-white border border-[#01004C] text-[#01004C] hover:bg-[#01004C] hover:text-white py-3 rounded-lg font-semibold transition-all">

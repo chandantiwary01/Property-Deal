@@ -4,28 +4,30 @@ import painting1 from '../../assets/offer_paint.png';
 import painting2 from '../../assets/offer_paint.png';
 
 const OfferCard = ({ image, title, bgColor }) => (
-  <div className={`${bgColor} rounded-lg p-8 flex flex-row items-center justify-between shadow-sm h-full`}>
-    {/* Text Content Area */}
-    <div className="flex-1 pr-4">
-      <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+  // Changed flex-row to flex-col for mobile and sm:flex-row for larger screens
+  <div className={`${bgColor} rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between shadow-sm h-full gap-6`}>
+    
+    {/* Text Content Area - Centered on mobile, left-aligned on sm+ */}
+    <div className="flex-1 text-center sm:text-left flex flex-col items-center sm:items-start">
+      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight">
         {title}
       </h3>
-      <p className="text-gray-500 text-[10px] mb-8 leading-relaxed max-w-[280px]">
+      <p className="text-gray-500 text-[10px] md:text-xs mb-6 md:mb-8 leading-relaxed max-w-[280px] sm:max-w-none">
         Lorem Ipsum has been Ipsum has beenLorem Ipsum has been Ipsum has been Ipsum
         has beenLorem Ipsum has been Ipsum has been Lorem Ipsum has been Ipsum has 
         been Ipsum has beenLorem Ipsum een Ipsum has been
       </p>
-      <button className="bg-[#000044] text-white px-10 py-3 rounded-md font-bold text-sm hover:opacity-90 transition-opacity">
+      <button className="bg-[#000044] text-white px-8 md:px-10 py-3 rounded-md font-bold text-sm hover:bg-black transition-all active:scale-95 w-full sm:w-fit">
         View More
       </button>
     </div>
 
-    {/* Image Area */}
-    <div className="w-1/3 flex justify-end">
+    {/* Image Area - Responsive width adjustment */}
+    <div className="w-1/2 sm:w-1/3 flex justify-center sm:justify-end">
       <img 
         src={image} 
         alt="Offer Illustration" 
-        className="max-w-full h-auto object-contain" 
+        className="max-w-full h-auto object-contain max-h-[150px] sm:max-h-none" 
       />
     </div>
   </div>
@@ -33,7 +35,9 @@ const OfferCard = ({ image, title, bgColor }) => (
 
 const Offers = () => {
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto">
+    // Adjusted padding for mobile responsiveness
+    <section className="py-8 md:py-12 px-4 sm:px-6 max-w-7xl mx-auto">
+      {/* Grid: 1 column on mobile/tablet, 2 columns on large screens */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <OfferCard 
           image={painting1} 

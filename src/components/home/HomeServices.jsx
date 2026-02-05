@@ -8,10 +8,10 @@ import service2 from '../../assets/service_2.png';
 import service3 from '../../assets/service_3.png';
 
 const ServiceCard = ({ title, image }) => (
-  <div className="bg-white rounded-xl shadow-lg border border-gray-50 overflow-hidden">
-    <div className="relative h-44">
+  <div className="bg-white rounded-xl shadow-lg border border-gray-50 overflow-hidden w-full transition-transform hover:scale-[1.02]">
+    <div className="relative h-48 sm:h-44">
       <img src={image} alt={title} className="w-full h-full object-cover" />
-      <button className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#000033] text-white text-[10px] px-6 py-2 rounded-t-lg font-bold">
+      <button className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#000033] text-white text-[10px] px-6 py-2 rounded-t-lg font-bold whitespace-nowrap">
         View Details
       </button>
     </div>
@@ -30,29 +30,31 @@ const HomeServices = () => {
   return (
     <div className="overflow-hidden">
       {/* Top Section */}
-      <section className="bg-[#f4faff] pt-16 pb-20 px-6 relative">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
-          {/* Left: Painter Image */}
-          <div className="lg:w-1/4 flex justify-center items-end">
-            <img src={painterImg} alt="Painter" className="max-h-[500px] object-contain" />
+      <section className="bg-[#f4faff] pt-12 pb-16 md:pt-16 md:pb-20 px-4 sm:px-6 relative">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:items-end">
+          {/* Left: Painter Image - Centered on mobile, aligned left on desktop */}
+          <div className="w-full lg:w-1/4 flex justify-center lg:justify-start">
+            <img src={painterImg} alt="Painter" className="max-h-[350px] md:max-h-[450px] lg:max-h-[500px] object-contain" />
           </div>
 
-          {/* Right: Content */}
-          <div className="lg:w-3/4">
-            <div className="flex justify-between items-center mb-10">
-              <div className="flex items-center gap-4">
-                <h2 className="text-3xl font-bold text-gray-900">Home Services</h2>
+          {/* Right: Content Area */}
+          <div className="w-full lg:w-3/4">
+            {/* Header: Stacks on small mobile, row on larger screens */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-10">
+              <div className="flex items-center gap-3 md:gap-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Home Services</h2>
                 <div className="flex items-center">
-                  <div className="h-[2px] w-14 bg-blue-300"></div>
+                  <div className="h-[2px] w-10 md:w-14 bg-blue-300"></div>
                   <div className="w-3 h-3 bg-[#3d4272] rotate-45 -ml-1"></div>
                 </div>
               </div>
-              <a href="#" className="text-blue-400 font-medium flex items-center gap-1 text-sm">
+              <a href="#" className="text-blue-400 font-medium flex items-center gap-1 text-sm hover:underline">
                 Explore More Services <span className="text-lg">›</span>
               </a>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               <ServiceCard title="Home renovation" image={service1} />
               <ServiceCard title="Electrician" image={service2} />
               <ServiceCard title="Mason" image={service3} />
@@ -61,37 +63,8 @@ const HomeServices = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="bg-[#0a0a0a] text-white py-20 px-6 relative">
-        
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Why Choose Us</h2>
-          <p className="text-gray-400 text-xs mb-16 max-w-3xl mx-auto leading-loose">
-            Lorem Ipsum has been Ipsum has been Lorem Ipsum has been Lorem Ipsum has been Lorem Ipsum has been...
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-12">
-            {[
-              { icon: <Shield />, title: "Safety" },
-              { icon: <Home />, title: "Quality Work" },
-              { icon: <Briefcase />, title: "Experience" },
-              { icon: <Briefcase />, title: "Professional" },
-              { icon: <Users />, title: "Qualified Staff" },
-              { icon: <Briefcase />, title: "Experience" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center group">
-                <div className="w-14 h-14 bg-[#00aeff] rounded-full flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(0,174,239,0.3)]">
-                  {React.cloneElement(item.icon, { size: 24, className: "text-white" })}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-400 text-[11px] leading-relaxed px-4">
-                  Lorem Ipsum has been Ipsum has been Lorem Ipsum has been Ipsum has been
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
+      
     </div>
   );
 };
