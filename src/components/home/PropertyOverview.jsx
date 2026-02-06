@@ -2,6 +2,10 @@ import React from 'react';
 import { Play, Share2 } from 'lucide-react';
 import propertyVideo from '../../assets/Overview_img.png';
 
+import lineImg from "../../assets/Line_2.png";
+
+
+
 const PropertyOverview = () => {
   return (
     // Responsive padding: smaller on mobile (py-10), larger on desktop (md:py-16)
@@ -13,10 +17,13 @@ const PropertyOverview = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 whitespace-nowrap">
             Property Overview
           </h2>
-          <div className="flex items-center">
-            <div className="h-[2px] w-10 md:w-16 bg-blue-400"></div>
-            <div className="w-3 h-3 bg-[#3d4272] rotate-45 -ml-1"></div>
-          </div>
+          <div className="flex items-center mt-2">
+  <img
+    src={lineImg}
+    alt="Decorative line"
+    className="w-10 md:w-16 h-auto"
+  />
+</div>
         </div>
 
         {/* Video Thumbnail Container - Fluid height based on device */}

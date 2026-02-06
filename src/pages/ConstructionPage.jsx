@@ -21,7 +21,7 @@ const CategoryCard = ({ title, image }) => {
         <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#01004C] mb-3">
           {title}
         </h3>
-        <p className="text-gray-400 text-sm sm:text-base leading-relaxed line-clamp-2 sm:line-clamp-none">
+        <p className="text-gray-400 text-sm sm:text-base leading-relaxed line-clamp-2 sm:line-clamp-none font-poppins ">
           Lorem Ipsum available, but the majority have suffered alteration in
           some form
         </p>
@@ -113,7 +113,7 @@ const ConstructionPage = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen py-10 sm:py-16 md:py-20 px-4 sm:px-6">
+    <div className="bg-white min-h-screen py-10 sm:py-16 md:py-20 px-4 sm:px-6 font-poppins ">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Heading */}

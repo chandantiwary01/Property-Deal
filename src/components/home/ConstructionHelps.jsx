@@ -7,6 +7,9 @@ import steelImg from '../../assets/cons_img3.png';
 import bannerBg from '../../assets/banner_const.png';
 import cons_down from "../../assets/cons_down.png";
 
+
+import lineImg from "../../assets/Line_2.png";
+
 const HelpCard = ({ title, image, isPrimary }) => (
   <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-50 flex flex-col items-center w-full transition-transform hover:scale-[1.02]">
     <h3 className="text-2xl font-bold text-[#000044] mb-2">{title}</h3>
@@ -34,11 +37,15 @@ const ConstructionHelps = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
           <div className="flex items-center gap-3 sm:gap-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Constractions Helps</h2>
-            <div className="flex items-center">
-              <div className="h-[2px] w-10 sm:w-14 bg-blue-300"></div>
-              <div className="w-3 h-3 bg-[#3d4272] rotate-45 -ml-1"></div>
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Constructions Helps</h2>
+            <div className="flex items-center mt-2">
+                        <img
+                          src={lineImg}
+                          alt="Decorative line"
+                          className="w-10 md:w-16 h-auto"
+                        />
+             </div>
+
           </div>
           <a href="#" className="text-blue-400 font-medium flex items-center gap-1 text-sm hover:underline">
             Explore More <span className="text-lg">›</span>
@@ -52,7 +59,7 @@ const ConstructionHelps = () => {
           <HelpCard title="Steel" image={steelImg} isPrimary={false} />
         </div>
 
-        {/* Dark Banner Section */}
+        {/* 2nd LOWER PART- Dark Banner Section */}
         <div className="relative rounded-2xl overflow-hidden min-h-[350px] flex items-center p-6 sm:p-10 md:p-12">
           <img 
             src={bannerBg} 

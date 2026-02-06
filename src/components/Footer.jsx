@@ -7,7 +7,7 @@ const DIAGONAL_OFFSET = 386; // spacing used in the design
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#01004C] text-white overflow-hidden">
+    <footer className="relative bg-[#01004C] text-white font-['Poppins'] overflow-hidden">
 
       {/* Diagonal right-side background */}
       {/* Added max/min logic to clipPath to ensure it scales on screens narrower than 386px */}
@@ -37,7 +37,7 @@ const Footer = () => {
               className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto mb-6 object-contain"
             />
 
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed max-w-xs">
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed max-w-xs lg:font-normal">
               High level experience in Constractions and development
             </p>
 
@@ -99,7 +99,7 @@ const Footer = () => {
 /* Footer List Component */
 const FooterList = ({ title, items, isLink }) => (
   <div className="min-w-[120px]">
-    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 md:mb-6">
+    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 md:mb-6 lg:font-bold">
       {title}
     </h3>
 
@@ -108,7 +108,7 @@ const FooterList = ({ title, items, isLink }) => (
         <li key={item} className="flex items-center gap-3 group">
           <span className="w-1.5 h-1.5 bg-white rounded-full shrink-0 group-hover:bg-blue-400 transition-colors" />
           {isLink ? (
-            <Link to="/" className="text-sm sm:text-base md:text-lg hover:text-gray-300 transition-colors">
+            <Link to="/" className="text-sm sm:text-base md:text-lg hover:text-gray-300 transition-colors lg:font-normal">
               {item}
             </Link>
           ) : (

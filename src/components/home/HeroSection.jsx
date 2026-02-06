@@ -4,7 +4,7 @@ import { Search } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    // Changed h-[550px] to min-h-[500px] and md:h-[600px] for better mobile scaling
+    
     <div className="relative min-h-[500px] md:h-[600px] flex items-center justify-center text-center text-white px-4">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
@@ -25,15 +25,15 @@ const HeroSection = () => {
         </p>
         
         {/* Search Bar: Stacks on mobile (flex-col), row on small screens up (sm:flex-row) */}
-        <div className="bg-white p-1.5 sm:p-1 rounded-md flex flex-col sm:flex-row max-w-2xl mx-auto shadow-2xl gap-2 sm:gap-0">
+        <div className="flex items-stretch w-full overflow-hidden  border border-gray-200 rounded-md shadow-lg h-14 md:h-16" >
           <input 
             type="text" 
             placeholder="Search for more results..." 
-            className="flex-grow px-4 py-3 text-gray-700 outline-none placeholder-gray-400 text-sm md:text-base rounded-sm"
+            className="flex-grow px-4 py-2 text-sm text-gray-300 bg-transparent outline-none md:text-lg placeholder-white"
           />
-          <button className="bg-[#000044] text-white px-8 py-3 rounded-sm flex items-center justify-center gap-3 font-semibold hover:bg-black transition-all w-full sm:w-auto active:scale-95">
+          <button className="bg-[#000044] hover:bg-blue-300 active:scale-95 transition-all text-white px-4 md:px-10 flex items-center justify-center gap-2 font-bold whitespace-nowrap">
             <span className="text-sm md:text-base">Search</span>
-            <Search size={18} className="md:w-5 md:h-5" />
+            <Search size={18} className="w-4 h-4 md:w-6 md:h-6"/>
           </button>
         </div>
       </div>

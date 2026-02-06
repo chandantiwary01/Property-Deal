@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/property_logo.png";
-import icon1 from "../assets/navbar_R8_icon.png";
+import icon1 from "../assets/icon_360.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Desktop Menu - Replaced ml-[450px] with flex-grow and gap for responsiveness */}
+        {/* Desktop Menu - responsiveness */}
         <div className="hidden md:flex items-center justify-center flex-grow gap-6 lg:gap-10 xl:gap-[60px] text-white font-['Poppins'] font-[600] md:text-[18px] lg:text-[22px] xl:text-[25px]">
           <Link to="/" className="cursor-pointer hover:text-[#41B3FF] transition whitespace-nowrap">
             Home
@@ -56,11 +56,11 @@ const Navbar = () => {
           </button>
 
           {/* Profile/Icon */}
-          <div className="w-[40px] h-[40px] lg:w-[55px] lg:h-[55px] xl:w-[65px] xl:h-[65px] rounded-full bg-white flex items-center justify-center shrink-0">
+          <div className="w-[40px] h-[40px] lg:w-[55px] lg:h-[55px] xl:w-[65px] xl:h-[65px] rounded-full  flex items-center justify-center shrink-0">
             <img
               src={icon1}
               alt="icon"
-              className="w-5 h-5 lg:w-8 lg:h-8 xl:w-10 xl:h-10 object-contain cursor-pointer"
+              className="w-15 h-15 lg:w-8 lg:h-8 xl:w-10 xl:h-10 object-contain cursor-pointer"
             />
           </div>
 

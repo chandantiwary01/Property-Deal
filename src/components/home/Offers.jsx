@@ -5,7 +5,7 @@ import painting2 from '../../assets/offer_paint.png';
 
 const OfferCard = ({ image, title, bgColor }) => (
   // Changed flex-row to flex-col for mobile and sm:flex-row for larger screens
-  <div className={`${bgColor} rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between shadow-sm h-full gap-6`}>
+  <div className={`${bgColor} rounded-1xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between shadow-sm h-full gap-6`}>
     
     {/* Text Content Area - Centered on mobile, left-aligned on sm+ */}
     <div className="flex-1 text-center sm:text-left flex flex-col items-center sm:items-start">
@@ -17,7 +17,8 @@ const OfferCard = ({ image, title, bgColor }) => (
         has beenLorem Ipsum has been Ipsum has been Lorem Ipsum has been Ipsum has 
         been Ipsum has beenLorem Ipsum een Ipsum has been
       </p>
-      <button className="bg-[#000044] text-white px-8 md:px-10 py-3 rounded-md font-bold text-sm hover:bg-black transition-all active:scale-95 w-full sm:w-fit">
+      <button className="bg-[#000044] text-white px-8 md:px-10 py-3 rounded-lg font-bold text-sm hover:bg-blue-400 transition-all active:scale-95 w-full  sm:w-[205px]
+    h-[51px]">
         View More
       </button>
     </div>

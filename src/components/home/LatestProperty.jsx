@@ -5,6 +5,10 @@ import latest1 from '../../assets/latest_1.png';
 import latest2 from '../../assets/latest_2.png';
 import latest3 from '../../assets/latest_3.png';
 
+import lineImg from "../../assets/Line_2.png";
+
+import rightIcon from "../../assets/right_icon.png";
+
 //  Property Card Component 
 const PropertyCard = ({ image }) => {
   return (
@@ -12,7 +16,7 @@ const PropertyCard = ({ image }) => {
       {/* Image Container */}
       <div className="relative h-52 sm:h-56 shrink-0">
         <img src={image} alt="Property" className="w-full h-full object-cover" />
-        <div className="absolute top-3 left-3 bg-[#00aaff] text-white text-[10px] font-bold px-2 py-1 rounded">
+        <div className="absolute top-3 left-3 bg-[#00aaff] text-white text-[10px] font-bold px-2 py-1 rounded-full">
           FOR RENT
         </div>
         <div className="absolute top-3 right-3 flex flex-col gap-2">
@@ -30,9 +34,13 @@ const PropertyCard = ({ image }) => {
         <h3 className="font-bold text-gray-800 text-base md:text-lg line-clamp-1">Rent for 2BHK Flat in bengaluru</h3>
         
         <div className="flex items-start gap-2 mt-2 text-gray-400">
-          <div className="bg-teal-600 p-1 rounded-full mt-0.5 shrink-0">
-            <MapPin size={10} className="text-white" />
-          </div>
+          <div className="mt-0.5 shrink-0">
+  <img
+    src={rightIcon}
+    alt="icon"
+    className="w-4 h-4"
+  />
+</div>
           <p className="text-[11px] md:text-xs leading-tight line-clamp-2">No 37, 1st main road No 37, 1st main road No 37, 1st main road...</p>
         </div>
 
@@ -57,7 +65,7 @@ const PropertyCard = ({ image }) => {
         {/* Price and Button */}
         <div className="mt-5">
            <p className="text-lg font-bold text-gray-800">₹ 7,000<span className="text-sm font-normal text-gray-500">/Month</span></p>
-           <button className="w-full mt-3 bg-[#000044] text-white py-3 rounded-lg font-bold text-sm hover:bg-black transition-all active:scale-[0.98]">
+           <button className="w-full mt-3 bg-[#000044] text-white py-3 rounded-lg font-bold text-sm hover:bg-blue-500 transition-all active:scale-[0.98]">
              View Details
            </button>
         </div>
@@ -76,10 +84,12 @@ const LatestProperty = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-12">
         <div className="flex items-center gap-3 md:gap-4">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Our Latest Property</h2>
-          {/* Decorative Line - Hidden on very small screens to save space */}
-          <div className="hidden xs:flex items-center">
-             <div className="h-[2px] w-10 md:w-16 bg-blue-400"></div>
-             <div className="w-3 h-3 bg-[#000044] rotate-45 ml-[-4px]"></div>
+          <div className="flex items-center mt-2">
+            <img
+              src={lineImg}
+              alt="Decorative line"
+              className="w-10 md:w-16 h-auto"
+            />
           </div>
         </div>
         
